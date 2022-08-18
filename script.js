@@ -1,7 +1,7 @@
 const Persona=[{
 	id:1234,
 	nick_name: "Lerkisers",
-	score_duo:0,
+	score_duo:1095,
 	score_flex:285,
 	nivel:49,
 	imagen: "/img/lerkis.jpg",
@@ -72,6 +72,23 @@ function Renovar(){
 		console.log("Bronce 2 - "+ (Persona[0].score_duo-601) + " PL")
 	}else if(Persona[0].score_duo>=701 && Persona[0].score_duo<=800){	
 		console.log("Bronce 1 - "+ (Persona[0].score_duo-701) + " PL")
+	}else if(Persona[0].score_duo>=801 && Persona[0].score_duo<=900){
+		console.log("plata 4 - "+ (Persona[0].score_duo-801) + "PL")
+	}else if(Persona[0].score_duo>=901 && Persona[0].score_duo<=1000){
+		console.log("plata 3 - "+ (Persona[0].score_duo-901) + "PL")
+	}else if(Persona[0].score_duo>=1001 && Persona[0].score_duo<=1100){
+		console.log("plata 2 -"+ (Persona[0].score_duo-1001) + "PL")
+	}else if(Persona[0].score_duo>=1101 && Persona[0].score_duo<=1200){
+		console.log("plata 1 -"+ (Persona[0].score_duo-1101) + "PL")
+	}else if(Persona[0].score_duo>=1201 && Persona[0].score_duo<=1300){
+		console.log("Oro 4 -"+ (Persona[0].score_duo-1201) + "PL")
+	}else if(Persona[0].score_duo>=1301 && Persona[0].score_duo<=1400){
+		console.log("Oro 3 -"+ (Persona[0].score_duo-1301) + "PL")
+	}else if(Persona[0].score_duo>=1401 && Persona[0].score_duo<=1500){
+		console.log("Oro 2 -"+ (Persona[0].score_duo-1401) + "PL")
+	}else if(Persona[0].score_duo>=1501 && Persona[0].score_duo<=1600){
+		console.log("Oro 1 -"+ (Persona[0].score_duo-1501) + "PL")
+
 	}
 }
 
