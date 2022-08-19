@@ -109,8 +109,53 @@ const gaseosas =[
 			valor: score - 801,
 			imagen: "/img/silver.webp",			
 		}]
-	}
-
+	}else if(score>=901 && score<=1000){
+		return [{
+			rank: "Plata 3",
+			valor: score - 901,
+			imagen: "/img/silver.webp",
+		}]
+	
+	}else if(score>=1001 && score<=1100){
+		return [{
+			rank: "Plata 2",
+			valor: score - 1001,
+			imagen: "/img/silver.webp",
+		}]	
+	
+	}else if(score>=1101 && score<=1200){
+		return [{
+			rank: "Plata 1",
+			valor: score - 1101,
+			imagen: "/img/silver.webp",	
+		}]
+		
+	}else if(score>=1201 && score<=1300){
+		return [{
+			rank: "Oro 4",
+			valor: score - 1201,
+			imagen: "/img/gold.wedp",
+		}]
+	}else if(score>=1301 && score<=1400){
+		return [{
+			rank: "Oro 3",
+			valor: score - 1301,
+			imagen: "/img/gold.wedp",
+		}]	
+	
+	}else if(score>=1401 && score<=1500){
+		return [{
+			rank: "Oro 2",
+			valor: score - 1401,
+			imagen: "/img/gold.wedp",
+		}]	
+	}else if(score_>=1501 && score<=1600){
+		return [{
+			rank: "Oro 1",
+			valor: score - 1501,
+			imagen: "/img/gold.wedp",
+		}]
+		
  }
 
 function Renovar(){
