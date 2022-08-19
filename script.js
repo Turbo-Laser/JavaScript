@@ -1,8 +1,8 @@
 const Persona=[{
 	id:1234,
 	nick_name: "Lerkisers",
-	score_duo:1095,
-	score_flex:285,
+	score_duo:95,
+	score_flex:495,
 	nivel:49,
 	imagen: "/img/lerkis.jpg",
 }]
@@ -54,44 +54,78 @@ const gaseosas =[
  
  document.querySelector('#persona').innerHTML = templatePersona;  
 
+ function Rankear(score){
+	if(score>=0 && score<=100){		
+		return [{
+			rank: "Hierro 4",
+			valor: score,
+			imagen: "/img/iron.webp",			
+		}]
+	}else if(score>=101 && score<=200){
+		return [{
+			rank: "Hierro 3",
+			valor: score - 101,
+			imagen: "/img/iron.webp",			
+		}]
+	}else if(score>=201 && score<=300){
+		return [{
+			rank: "Hierro 2",
+			valor: score - 201,
+			imagen: "/img/iron.webp",			
+		}]
+	}else if(score>=301 && score<=400){
+		return [{
+			rank: "Hierro 1",
+			valor: score - 301,
+			imagen: "/img/iron.webp",			
+		}]
+	}else if(score>=401 && score<=500){
+		return [{
+			rank: "Bronce 4",
+			valor: score - 401,
+			imagen: "/img/bronze.webp",			
+		}]
+	}else if (score>=501 && score<=600){
+		return [{
+			rank: "Bronce 3",
+			valor: score - 501,
+			imagen: "/img/bronze.webp",			
+		}]
+	}else if (score>=601 && score<=700){
+		return [{
+			rank: "Bronce 2",
+			valor: score - 601,
+			imagen: "/img/bronze.webp",			
+		}]
+	}else if(score>=701 && score<=800){
+		return [{
+			rank: "Bronce 1",
+			valor: score - 701,
+			imagen: "/img/bronze.webp",			
+		}]
+	}else if (score>=801 && score<=900){
+		return [{
+			rank: "Plata 4",
+			valor: score - 801,
+			imagen: "/img/silver.webp",			
+		}]
+	}
+
+ }
 
 function Renovar(){
-	if(Persona[0].score_duo>=0 && Persona[0].score_duo<=100){
-		console.log("Hierro 4 - "+ Persona[0].score_duo + " PL")
-	}else if(Persona[0].score_duo>=101 && Persona[0].score_duo<=200){	
-		console.log("Hierro 3 - " + (Persona[0].score_duo-101) + " PL")
-	}else if(Persona[0].score_duo>=201 && Persona[0].score_duo<=300){	
-		console.log("Hierro 2 - " + (Persona[0].score_duo-201) + " PL")
-	}else if(Persona[0].score_duo>=301 && Persona[0].score_duo<=400){	
-		console.log("Hierro 1 - "+ (Persona[0].score_duo-301) + " PL")
-	}else if(Persona[0].score_duo>=401 && Persona[0].score_duo<=500){	
-		console.log("Bronce 4 - "+ (Persona[0].score_duo-401) + " PL")
-	}else if(Persona[0].score_duo>=501 && Persona[0].score_duo<=600){	
-		console.log("Bronce 3 - "+ (Persona[0].score_duo-501) + " PL")
-	}else if(Persona[0].score_duo>=601 && Persona[0].score_duo<=700){	
-		console.log("Bronce 2 - "+ (Persona[0].score_duo-601) + " PL")
-	}else if(Persona[0].score_duo>=701 && Persona[0].score_duo<=800){	
-		console.log("Bronce 1 - "+ (Persona[0].score_duo-701) + " PL")
-	}else if(Persona[0].score_duo>=801 && Persona[0].score_duo<=900){
-		console.log("plata 4 - "+ (Persona[0].score_duo-801) + "PL")
-	}else if(Persona[0].score_duo>=901 && Persona[0].score_duo<=1000){
-		console.log("plata 3 - "+ (Persona[0].score_duo-901) + "PL")
-	}else if(Persona[0].score_duo>=1001 && Persona[0].score_duo<=1100){
-		console.log("plata 2 -"+ (Persona[0].score_duo-1001) + "PL")
-	}else if(Persona[0].score_duo>=1101 && Persona[0].score_duo<=1200){
-		console.log("plata 1 -"+ (Persona[0].score_duo-1101) + "PL")
-	}else if(Persona[0].score_duo>=1201 && Persona[0].score_duo<=1300){
-		console.log("Oro 4 -"+ (Persona[0].score_duo-1201) + "PL")
-	}else if(Persona[0].score_duo>=1301 && Persona[0].score_duo<=1400){
-		console.log("Oro 3 -"+ (Persona[0].score_duo-1301) + "PL")
-	}else if(Persona[0].score_duo>=1401 && Persona[0].score_duo<=1500){
-		console.log("Oro 2 -"+ (Persona[0].score_duo-1401) + "PL")
-	}else if(Persona[0].score_duo>=1501 && Persona[0].score_duo<=1600){
-		console.log("Oro 1 -"+ (Persona[0].score_duo-1501) + "PL")
+	let Solo_duo = Rankear(Persona[0].score_duo)
+	let Flexible = Rankear(Persona[0].score_flex)
+    var template=''
 
-	}
+	template='<div><img src="' + Solo_duo[0].imagen + '"/><p>'+Solo_duo[0].rank+'<br> ' +Solo_duo[0].valor + 'PL</p></div>'+ 
+			'<div><img src="' + Flexible[0].imagen + '"/><p>'+Flexible[0].rank+'<br> ' +Flexible[0].valor + 'PL</p></div>'
+
+	console.log(Solo_duo[0].rank + ' ' + Solo_duo[0].valor + ' ' + Solo_duo[0].imagen )
+	console.log(Flexible[0].rank + ' ' + Flexible[0].valor + ' ' + Flexible[0].imagen)
+
+	document.querySelector('#rango').innerHTML = template; 
 }
-
 function listar(){
   //Declaracion de VAriable
   var template=''
