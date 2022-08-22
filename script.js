@@ -1,11 +1,37 @@
-const Persona=[{
-	id:1234,
-	nick_name: "Lerkisers",
-	score_duo:95,
-	score_flex:495,
-	nivel:49,
-	imagen: "/img/lerkis.jpg",
-}]
+const Persona=[
+	{
+		id:1234,
+		nick_name: "Lerkisers",
+		score_duo:1506,
+		score_flex:550,
+		nivel:49,
+		imagen: "/img/lerkis.jpg",
+	},	
+	{
+		id:45321,
+		nick_name: "Rasputin87",
+		score_duo:356,
+		score_flex:1550,
+		nivel:349,
+		imagen: "/img/rasputin.jpg",
+	},	
+	{
+		id:21432,
+		nick_name: "SuperStarFox",
+		score_duo:356,
+		score_flex:1550,
+		nivel:369,
+		imagen: "/img/fox.jpg",
+	},
+	{
+		id:5421432,
+		nick_name: "GatOcHaChO",
+		score_duo:1354,
+		score_flex:1226,
+		nivel:269,
+		imagen: "/img/gatochacho.jpg",
+	},
+]
 const gaseosas =[
 	{
 		id: 321564645,
@@ -45,14 +71,7 @@ const gaseosas =[
 	return 'Bienvenido Sr: ' + this.nombre + ' ' + this.apellido + ' su Id es: ' + this.id;
  }*/
 
- var templatePersona = '<table><tbody><tr><td><img src="' + 
- 	Persona[0].imagen +
-	'" width="100"/><p class="text_center">'+
-	Persona[0].nivel +'</p></td><td><h1>'+
-	Persona[0].nick_name +
-	'</h1></td></tr></tbody></table>'
- 
- document.querySelector('#persona').innerHTML = templatePersona;  
+  
 
  function Rankear(score){
 	if(score>=0 && score<=100){		
@@ -134,42 +153,83 @@ const gaseosas =[
 		return [{
 			rank: "Oro 4",
 			valor: score - 1201,
-			imagen: "/img/gold.wedp",
+			imagen: "/img/gold.webp",
 		}]
 	}else if(score>=1301 && score<=1400){
 		return [{
 			rank: "Oro 3",
 			valor: score - 1301,
-			imagen: "/img/gold.wedp",
+			imagen: "/img/gold.webp",
 		}]	
 	
 	}else if(score>=1401 && score<=1500){
 		return [{
 			rank: "Oro 2",
 			valor: score - 1401,
-			imagen: "/img/gold.wedp",
+			imagen: "/img/gold.webp",
 		}]	
-	}else if(score_>=1501 && score<=1600){
+	}else if(score>=1501 && score<=1600){
 		return [{
 			rank: "Oro 1",
 			valor: score - 1501,
-			imagen: "/img/gold.wedp",
+			imagen: "/img/gold.webp",
 		}]
+	}
+}
+function Profile(){
+	var Solo_duo=''
+	var Flexible=''
+	var template_duo=''
+	var template_flex=''
+
+	var result =document.getElementById("invocador").value	
+	var templatePersona = '<table><tbody><tr><td><img src="' + 
+ 	Persona[result].imagen +
+	'" width="100"/><p class="text_center">'+
+	Persona[result].nivel +'</p></td><td><h1>'+
+	Persona[result].nick_name +
+	'</h1></td></tr></tbody></table>'
+	
+	document.querySelector('#persona').innerHTML = templatePersona; 
+	
+	
+	//MOSTRAMOS 
+	Solo_duo = Rankear(Persona[result].score_duo)
+	Flexible = Rankear(Persona[result].score_flex)
+    
+	
+	
+	
+	template_duo='<td class="circle"><img src="'+Solo_duo[0].imagen+
+		'" width="80px"/></td><td><h3><strong>'+Solo_duo[0].rank+
+		'</strong><br><small>'+Solo_duo[0].valor+' LP</small></h3></td>'
+	
+	template_flex='<td class="circle"><img src="'+Flexible[0].imagen+
+		'" width="80px"/></td><td><h3><strong>'+Flexible[0].rank+
+		'</strong><br><small>'+Flexible[0].valor+' LP</small></h3></td>'
 		
- }
+	document.querySelector('#rango_duo').innerHTML = template_duo; 
+	document.querySelector('#rango_flex').innerHTML = template_flex; 
+	
+}
+function Renovar(posicion){
+	let Solo_duo = Rankear(Persona[posicion].score_duo)
+	let Flexible = Rankear(Persona[posicion].score_flex)
+    
+	var template_duo=''
+	var template_flex=''
 
-function Renovar(){
-	let Solo_duo = Rankear(Persona[0].score_duo)
-	let Flexible = Rankear(Persona[0].score_flex)
-    var template=''
-
-	template='<div><img src="' + Solo_duo[0].imagen + '"/><p>'+Solo_duo[0].rank+'<br> ' +Solo_duo[0].valor + 'PL</p></div>'+ 
-			'<div><img src="' + Flexible[0].imagen + '"/><p>'+Flexible[0].rank+'<br> ' +Flexible[0].valor + 'PL</p></div>'
-
-	console.log(Solo_duo[0].rank + ' ' + Solo_duo[0].valor + ' ' + Solo_duo[0].imagen )
-	console.log(Flexible[0].rank + ' ' + Flexible[0].valor + ' ' + Flexible[0].imagen)
-
-	document.querySelector('#rango').innerHTML = template; 
+	
+	template_duo='<td class="circle"><img src="'+Solo_duo[posicion].imagen+
+		'" width="80px"/></td><td><h3><strong>'+Solo_duo[posicion].rank+
+		'</strong><br><small>'+Solo_duo[posicion].valor+'</small></h3></td>'
+	
+	template_flex='<td class="circle"><img src="'+Flexible[posicion].imagen+
+		'" width="80px"/></td><td><h3><strong>'+Flexible[posicion].rank+
+		'</strong><br><small>'+Flexible[posicion].valor+'</small></h3></td>'
+		
+	document.querySelector('#rango_duo').innerHTML = template_duo; 
+	document.querySelector('#rango_flex').innerHTML = template_flex; 
 }
 function listar(){
   //Declaracion de VAriable

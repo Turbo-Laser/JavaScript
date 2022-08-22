@@ -11,9 +11,32 @@
     <div class="body_lol">
         <h1 class="text_center">OP.GG</h1>
         <p class="text_center">League of Legends</p>
+        <div>
+            <label for="">Seleccione Invocador</label>
+            
+            <select id="invocador" onchange="Profile()">
+                <option selected  disabled>Seleccione</option>
+                <option value="0">Lerkisers</option>
+                <option value="1">Rasputin87</option>
+                <option value="2">SuperStarFox</option>
+                <option value="3">GatOcHaChO</option>
+            </select>
+        </div>
         <div id="persona" class="persona">                                        
         </div>
-        <button onclick="Renovar()" >Renovar</button>
+        
+        <div class="box-rango">
+            <h3>Clasificatoria en Solitario</h3>   <hr>          
+            <table>
+                <tr id="rango_duo"></tr>
+            </table>
+        </div>
+        <div class="box-rango">
+            <h3>Clasificatoria Flexible</h3><hr>
+            <table>
+                <tr id="rango_flex"></tr>
+            </table>
+        </div>
         <div id="rango"></div>                
     </div>
     <p class="text_center"><small>© 2012-2022 OP.GG. OP.GG isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</small></p>

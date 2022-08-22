@@ -3,7 +3,7 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 td{
-    border: 1px #c777 solid;
+    border: 0px #c777 solid;
 }
 th{
     border: 1px #c777 solid;
@@ -22,4 +22,17 @@ th{
 .persona{
     background-color:aliceblue;
     padding: 5px;;
+}
+.box-rango{
+    background-color: rgb(235, 235, 235);
+    border: 0px solid #c777;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 2px;
+
+}
+.circle{
+    border-radius: 40px;
+    background-color: #fff;
+    
 }
